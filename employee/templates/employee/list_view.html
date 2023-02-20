@@ -1,0 +1,24 @@
+{% extends 'employee/base.html' %}
+
+{% block title %}
+    list view
+{% endblock title %}
+
+
+{% block content %}
+
+    {% if employee_list %}
+    <ul>
+    {% for employee in employee_list %}
+        <li>FirstName: {{ employee.firstName }}</li>
+        <li>MiddleName:  {{ employee.middleName }}</li>
+        <li>LastName: {{ employee.lastName }}</li>
+        <li>Gender: {{ employee.gender }}</li>
+        <br>
+    {% endfor %}
+    </ul>
+    {% else %}
+        <p>No employee are available.</p>
+    {% endif %}
+
+{% endblock content %}

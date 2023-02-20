@@ -1,1 +1,1 @@
-# HRIS
+# django-hris

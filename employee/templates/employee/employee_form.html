@@ -1,0 +1,17 @@
+{% extends 'employee/base.html' %}
+
+
+{% block title %}
+    Employee Form
+{% endblock title %}
+
+{% block content %}
+
+    {% if context_object_name == create_employee or update_employee %}
+        <form method="post">{% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Save">
+        </form>
+    {% endif %}
+
+{% endblock content %}
