@@ -30,7 +30,7 @@ class DeleteEmployee(generic.DeleteView):
     context_object_name = "delete_employee"
 
 
-class ListView(generic.ListView):
+class EmployeeListView(generic.ListView):
     model = Employee
     template_name = "employee/list_view.html"
 
@@ -39,3 +39,7 @@ class SignUpView(generic.CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy("employee:index")
     template_name = "employee/signup.html"
+
+class EmployeeDetailView(generic.DetailView):
+    model = Employee
+    template_name = "employee/detail_view.html"
