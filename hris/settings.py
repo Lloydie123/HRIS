@@ -89,7 +89,7 @@ WSGI_APPLICATION = "hris.wsgi.application"
 
 DATABASES = {  
     'default': {  
-        'ENGINE': 'django.db.backends.postgresql',  
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',  
         'NAME': 'railway',  
         'USER':'postgres',  
         'PASSWORD':'Lhw11mAJHNPOjAAs5b0V',  

@@ -16,6 +16,8 @@ urlpatterns = [
      # For Department  
      path('dep', views.dep),  
      path('show_dep',views.show_dep),  
-     
+     path('edit_dep/<int:id>', views.edit_dep),
+     path('update_dep/<int:id>', views.update_dep),  
+     path('delete_dep/<int:id>', views.destroy_dep), 
      
 ]

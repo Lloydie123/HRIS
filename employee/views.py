@@ -53,7 +53,7 @@ def dep(request):
         if form.is_valid():  
             try:  
                 form.save()  
-                return redirect('/show')  
+                return redirect('/show_dep')  
             except:  
                 pass  
     else:  
@@ -64,3 +64,20 @@ def dep(request):
 def show_dep(request):  
     department = Department.objects.all()  
     return render(request,"employee/show_dep.html",{'department':department})  
+
+def edit_dep(request, id):  
+    department = Department.objects.get(id=id)  
+    return render(request,'employee/edit_dep.html', {'department':department}) 
+
+def update_dep(request, id):  
+    department = Department.objects.get(id=id)  
+    form = DepartmentForm(request.POST, instance = department)  
+    if form.is_valid():  
+        form.save()  
+        return redirect("/employee/show_dep")  
+    return render(request, 'employee/edit_dep.html', {'department': department})  
+
+def destroy_dep(request, id):  
+    department = Department.objects.get(id=id)  
+    department.delete()  
+    return redirect("/employee/show_dep")
