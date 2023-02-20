@@ -11,4 +11,11 @@ urlpatterns = [
      path('<int:pk>/delete/', views.DeleteEmployee.as_view(), name='delete'),
      path("signup/", views.SignUpView.as_view(), name="signup"),
      path('', TemplateView.as_view(template_name='employee/base.html'), name='base'),
+     
+     
+     # For Department  
+     path('dep', views.dep),  
+     path('show_dep',views.show_dep),  
+     
+     
 ]

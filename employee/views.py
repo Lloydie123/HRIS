@@ -4,8 +4,8 @@ from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
 
 
-from .forms import EmployeeForm
-from .models import Employee
+from .forms import EmployeeForm,DepartmentForm
+from .models import Employee,Department
 
 # Create your views here.
 class CreateEmployee(generic.CreateView):
@@ -43,3 +43,24 @@ class SignUpView(generic.CreateView):
 class EmployeeDetailView(generic.DetailView):
     model = Employee
     template_name = "employee/detail_view.html"
+    
+
+# For Department
+
+def dep(request):  
+    if request.method == "POST":  
+        form = DepartmentForm(request.POST)  
+        if form.is_valid():  
+            try:  
+                form.save()  
+                return redirect('/show')  
+            except:  
+                pass  
+    else:  
+        form = DepartmentForm()  
+    return render(request,'employee/department.html',{'form':form})  
+
+
+def show_dep(request):  
+    department = Department.objects.all()  
+    return render(request,"employee/show_dep.html",{'department':department})  

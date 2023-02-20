@@ -1,8 +1,6 @@
 from django import forms
-
-
-from .models import Employee
-
+from .models import Employee,Department
+from django.forms import fields
 
 class EmployeeForm(forms.ModelForm):
     class Meta:
@@ -13,3 +11,7 @@ class EmployeeForm(forms.ModelForm):
              'gender': forms.RadioSelect,
         }
 
+class DepartmentForm(forms.ModelForm):  
+    class Meta:  
+        model = Department  
+        fields = ('name','description')
