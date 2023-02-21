@@ -1,0 +1,39 @@
+{% extends 'sidebar.html' %}
+
+
+    {% block content %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Department ID</th>
+                    <th>Department Name</th>
+                    <th>Description</th>
+                
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for dep in department %}
+
+
+                <tr>
+                    <td >{{ dep.id }}</td>
+                    <td>{{dep.name}}</td>
+                    <td>{{dep.description}}</td>
+                
+                    <td>
+                        <a href="/employee/edit_dep/{{ dep.id }}">Edit</a>
+                        <a href="/employee/delete_dep/{{dep.id}}">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button><a style="color:white;" href="dep">Add New Record</a></button>
+        {% endblock content %}
+        <br>
+        <br>
+       
+
+ 

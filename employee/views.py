@@ -47,27 +47,30 @@ class EmployeeDetailView(generic.DetailView):
 
 # For Department
 
+# For Dashboard
+def dashboard(request):  
+    return render(request,"dashboard/dashboard.html")  
+
 def dep(request):  
     if request.method == "POST":  
         form = DepartmentForm(request.POST)  
         if form.is_valid():  
             try:  
                 form.save()  
-                return redirect('/show_dep')  
+                return redirect('/employee/show_dep')  
             except:  
                 pass  
     else:  
         form = DepartmentForm()  
-    return render(request,'employee/department.html',{'form':form})  
-
+    return render(request,'department/department.html',{'form':form})  
 
 def show_dep(request):  
     department = Department.objects.all()  
-    return render(request,"employee/show_dep.html",{'department':department})  
+    return render(request,"department/show_dep.html",{'department':department})  
 
 def edit_dep(request, id):  
     department = Department.objects.get(id=id)  
-    return render(request,'employee/edit_dep.html', {'department':department}) 
+    return render(request,'department/edit_dep.html', {'department':department}) 
 
 def update_dep(request, id):  
     department = Department.objects.get(id=id)  
@@ -75,9 +78,30 @@ def update_dep(request, id):
     if form.is_valid():  
         form.save()  
         return redirect("/employee/show_dep")  
-    return render(request, 'employee/edit_dep.html', {'department': department})  
+    return render(request,'department/edit_dep.html', {'department': department})  
 
 def destroy_dep(request, id):  
     department = Department.objects.get(id=id)  
     department.delete()  
     return redirect("/employee/show_dep")
+
+# For Attendance
+
+def attendance(request):  
+    return render(request,"attendance/attendance.html")  
+# For Leave
+
+def leave(request):  
+    return render(request,"leaves/leaves.html")  
+
+# For Payroll
+def payroll(request):  
+    return render(request,"payroll/payroll.html")  
+
+# For Analytics
+def analytics(request):  
+    return render(request,"analytics/analytics.html")  
+
+# For Settings
+def settings(request):  
+    return render(request,"setting/settings.html")  

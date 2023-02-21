@@ -1,0 +1,49 @@
+{% extends 'sidebar.html' %}
+
+<body>
+    {% block content %}
+    <div class="main-content">
+
+        <form method="POST" action="/employee/update_dep/{{department.id}}">
+            {% csrf_token %}
+            <div>
+                <br>
+                <p>
+                    <h3>Update Department Details</h3>
+                </p>
+            </div>
+            <div>
+                <p>Department ID:</p>
+                <div>
+                    <input type="text" name="id" value="{{department.id}}" />
+                </div>
+
+                <p>Department Name:</p>
+                <div>
+                    <input type="text" name="name" value="{{department.name}}" />
+                </div>
+            </div>
+            <div>
+                <p>Department Details:</p>
+                <div>
+                    <input type="text" name="description" value="{{department.description}}" />
+                </div>
+            </div>
+            <div>
+                <br>
+                <button type="submit">Update</button>
+            </div>
+        </form>
+    
+    </div>
+</div>
+<script type="text/javascript">
+    const toggleSidebarButton = document.querySelector('#toggle-sidebar');
+    const wrapper = document.querySelector('.wrapper');
+
+    toggleSidebarButton.addEventListener('click', () => {
+    wrapper.classList.toggle('collapsed');
+    });
+</script>
+
+{% endblock content %}

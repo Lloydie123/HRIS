@@ -1,0 +1,39 @@
+{% extends 'sidebar.html' %}
+{% block content %}
+            <form method="POST" action="dep">
+                {% csrf_token %}
+                <div>
+                    <br>
+                    <p>
+                        <h3>Enter Details</h3>
+                    </p>
+                   
+                    <div>
+                        <p>Department Name:</p>{{ form.name }}
+                    </div>
+                    <div>
+                        <p>Description:</p>{{ form.description }}
+                    </div>
+                 
+                    <div>
+                        <br>
+                        <button type="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+    
+          
+    
+        </div>
+      </div>
+     
+
+      <script type="text/javascript">
+        const toggleSidebarButton = document.querySelector('#toggle-sidebar');
+        const wrapper = document.querySelector('.wrapper');
+    
+        toggleSidebarButton.addEventListener('click', () => {
+        wrapper.classList.toggle('collapsed');
+        });
+    </script>
+    {% endblock content %}
