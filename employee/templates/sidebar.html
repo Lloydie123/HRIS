@@ -1,134 +1,145 @@
-
 <!DOCTYPE html>
-
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8">
-    {% load static %}
-    <!--<title> Responsive Sidebar Menu  | CodingLab </title>-->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}"/>
-    <!-- Boxicons CDN Link -->
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   </head>
+
+<head>
+  <meta charset="UTF-8">
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
+  <!-- Boxicons CDN Link -->
+  <link href='//unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tailwind CDN -->
+  <link
+    href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap"
+    rel="stylesheet" />
+  <link
+    rel="stylesheet"
+    href="//cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+  <script src="//cdn.tailwindcss.com/3.2.4"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        fontFamily: {
+          sans: ["Roboto", "sans-serif"],
+          body: ["Roboto", "sans-serif"],
+          mono: ["ui-monospace", "monospace"],
+        },
+      },
+    };
+  </script>
+</head>
+
 <body>
   <div class="sidebar">
     <div class="logo-details">
 
-        <div class="logo_name">PEN TECH</div>
-        <i class='bx bx-menu' id="btn" ></i>
+      <div class="logo_name">PEN TECH</div>
+      <i class='bx bx-menu' id="btn"></i>
     </div>
     <ul class="nav-list">
-     
+
       <li>
         <a href="{%url 'employee:dashboard' %}">
           <i class='bx bx-grid-alt'></i>
           <span class="links_name">Dashboard</span>
         </a>
-         <span class="tooltip">Dashboard</span>
+        <span class="tooltip">Dashboard</span>
       </li>
       <li>
-       <a href="{%url 'employee:index' %}">
-         <i class='bx bx-user' ></i>
-         <span class="links_name">Employees</span>
-       </a>
-       <span class="tooltip">Employees</span>
-     </li>
-     <li>
-       <a href="{%url 'employee:show_department' %}">
-         <i class='bx bx-folder' ></i>
-         <span class="links_name">Department</span>
-       </a>
-       <span class="tooltip">Department</span>
-     </li>
-     <li>
+        <a href="{%url 'employee:index' %}">
+          <i class='bx bx-user'></i>
+          <span class="links_name">Employees</span>
+        </a>
+        <span class="tooltip">Employees</span>
+      </li>
+      <li>
+        <a href="{%url 'employee:show_department' %}">
+          <i class='bx bx-folder'></i>
+          <span class="links_name">Department</span>
+        </a>
+        <span class="tooltip">Department</span>
+      </li>
+      <li>
         <a href="{%url 'employee:attendance' %}">
-          <i class='bx bx-user-check' ></i>
+          <i class='bx bx-user-check'></i>
           <span class="links_name">Attendance</span>
         </a>
         <span class="tooltip">Attendance</span>
       </li>
-     
-    
-     <li>
+
+      <li>
         <a href="{%url 'employee:leaves' %}">
-         <i class='bx bxs-file-plus' ></i>
-         <span class="links_name">Leaves</span>
-       </a>
-       <span class="tooltip">Leaves</span>
-     </li>
+          <i class='bx bxs-file-plus'></i>
+          <span class="links_name">Leaves</span>
+        </a>
+        <span class="tooltip">Leaves</span>
+      </li>
 
-
-     <li>
+      <li>
         <a href="{%url 'employee:analytics' %}">
-        <i class='bx bx-pie-chart-alt-2' ></i>
-        <span class="links_name">Analytics</span>
-      </a>
-      <span class="tooltip">Analytics</span>
-    </li>
+          <i class='bx bx-pie-chart-alt-2'></i>
+          <span class="links_name">Analytics</span>
+        </a>
+        <span class="tooltip">Analytics</span>
+      </li>
 
-     <li>  
+      <li>
         <a href="{%url 'employee:payroll' %}">
-         <i class='bx bx-money' ></i>
-         <span class="links_name">Payroll</span>
-       </a>
-       <span class="tooltip">Payroll</span>
-     </li>
+          <i class='bx bx-money'></i>
+          <span class="links_name">Payroll</span>
+        </a>
+        <span class="tooltip">Payroll</span>
+      </li>
 
-     <li>
+      <li>
         <a href="{%url 'employee:settings' %}">
-         <i class='bx bx-cog' ></i>
-         <span class="links_name">Setting</span>
-       </a>
-       <span class="tooltip">Setting</span>
-     </li>
-     <li class="profile">
-         <div class="profile-details">
-           <!--<img src="profile.jpg" alt="profileImg">-->
-           <div class="name_job">
-             <div class="name">USER</div>
-             <div class="job">Administrator</div>
-           </div>
-         </div>
-         <i class='bx bx-log-out' id="log_out" ></i>
-     </li>
+          <i class='bx bx-cog'></i>
+          <span class="links_name">Setting</span>
+        </a>
+        <span class="tooltip">Setting</span>
+      </li>
+      <li class="profile">
+        <div class="profile-details">
+          <!--<img src="profile.jpg" alt="profileImg">-->
+          <div class="name_job">
+            <div class="name">USER</div>
+            <div class="job">Administrator</div>
+          </div>
+        </div>
+        <i class='bx bx-log-out' id="log_out"></i>
+      </li>
     </ul>
   </div>
   <section class="home-section">
     <div class="text">
 
-          <!-- CREATE ADMIN PANELS HERE -->
-          {% block content %}
+      <!-- CREATE ADMIN PANELS HERE -->
+      {% block content %}
 
+      {% endblock%}
 
-
-          {% endblock%}
-
-        </div>
-</section>
+    </div>
+  </section>
   <script>
-
-
     let sidebar = document.querySelector(".sidebar");
     let closeBtn = document.querySelector("#btn");
     let searchBtn = document.querySelector(".bx-search");
-  
-    closeBtn.addEventListener("click", ()=>{
-      sidebar.classList.toggle("open");
-      menuBtnChange();//calling the function(optional)
-    });
-  
-    searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+    closeBtn.addEventListener("click", () => {
       sidebar.classList.toggle("open");
       menuBtnChange(); //calling the function(optional)
     });
-  
+    searchBtn.addEventListener("click", () => { // Sidebar open when you click on the search iocn
+      sidebar.classList.toggle("open");
+      menuBtnChange(); //calling the function(optional)
+    });
     // following are the code to change sidebar button(optional)
     function menuBtnChange() {
-     if(sidebar.classList.contains("open")){
-       closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
-     }else {
-       closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
-     }
+      if (sidebar.classList.contains("open")) {
+        closeBtn.classList.replace("bx-menu", "bx-menu-alt-right"); //replacing the iocns class
+      } else {
+        closeBtn.classList.replace("bx-menu-alt-right", "bx-menu"); //replacing the iocns class
+      }
     }
-    </script>
+  </script>
+  <script src="//cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
